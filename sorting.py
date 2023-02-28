@@ -9,8 +9,10 @@ If cmp(a, b) returns -1, then a < b;
 if cmp(a, b) returns  1, then a > b;
 if cmp(a, b) returns  0, then a == b.
 '''
-
+'''
 import random
+'''
+
 
 def cmp_standard(a, b):
     '''
@@ -87,11 +89,9 @@ def _merged(xs, ys, cmp=cmp_standard):
         else:
             ret.append(ys[iys])
             iys += 1
-    
     while ixs < len(xs):
         ret.append(xs[ixs])
         ixs += 1
-   
     while iys < len(ys):
         ret.append(ys[iys])
         iys += 1
@@ -128,12 +128,6 @@ def merge_sorted(xs, cmp=cmp_standard):
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
-    Quicksort is like mergesort,
-    but it uses a different strategy to split the list.
-    Instead of splitting the list down the middle,
-    a "pivot" value is randomly selected, 
-    and the list is split into a "less than" sublist and a "greater than" sublist.
-
     The pseudocode is:
 
         if xs has 1 element
