@@ -175,3 +175,20 @@ def quick_sort(xs, cmp=cmp_standard):
     to implement quick_sort as an in-place algorithm.
     You should directly modify the input xs variable instead of returning a copy of the list.
     '''
+    def _lomuto(xs, lo, hi):
+        pivot = xs[hi]
+        i = lo
+        for j in range(lo, hi):
+            if cmp(xs[j], pivot) <= 0:
+                xs[i], xs[j] = xs[j], xs[i]
+                i += 1
+        xs[i], xs[hi] = xs[hi], xs[i]
+        return i
+
+    def _helper_sort(xs, lo, hi):
+        if lo < hi:
+            l = _lomuto(xs, lo, hi)
+            _helper_sort(xs, lo, p - 1)
+            _helper_sort(xs, p + 1, hi)
+
+    _helper_sort(xs, 0, len(xs) - 1)
